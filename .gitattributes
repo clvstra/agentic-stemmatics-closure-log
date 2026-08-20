@@ -1,0 +1,6 @@
+# Normalise text to LF so clones are byte-identical across platforms.
+* text=auto eol=lf
+
+# ...except the log itself, which is integrity-critical: git must never rewrite its bytes.
+# This rule is deliberately AFTER the wildcard so it wins.
+*.jsonl -text

@@ -2,7 +2,9 @@
 
 This repository is the external copy of the append-only review log kept for the paper *Agentic
 Stemmatics: Collation, Provenance, and Conservation for an Emerging Machine Textual Tradition*
-(CounterProof Research). The paper is at <https://research.counterproof.io/>.
+(CounterProof Research), published as a preprint under
+[doi:10.5281/zenodo.22030516](https://doi.org/10.5281/zenodo.22030516), CC BY 4.0. The paper is
+also readable at <https://research.counterproof.io/>.
 
 It exists because the paper commits to one, and because a log held only by its author is not
 evidence to anybody else.

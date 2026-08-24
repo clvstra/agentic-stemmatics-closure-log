@@ -4,7 +4,9 @@ This repository is the external copy of the append-only review log kept for the 
 Stemmatics: Collation, Provenance, and Conservation for an Emerging Machine Textual Tradition*
 (CounterProof Research), published as a preprint under
 [doi:10.5281/zenodo.22030516](https://doi.org/10.5281/zenodo.22030516), CC BY 4.0. The paper is
-also readable at <https://research.counterproof.io/>.
+also readable at <https://research.counterproof.io/>. The research program this paper proposes —
+definition, open problems, and the map of adjacent literatures — has a reference site of its own
+at <https://agenticstemmatics.org/>.
 
 It exists because the paper commits to one, and because a log held only by its author is not
 evidence to anybody else.

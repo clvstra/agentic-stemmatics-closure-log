@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Note 1. Consensus as Oracle: TypeSafe's Jev Benchmark as a Type Specimen</title>
+<link rel="canonical" href="https://research.counterproof.io/field-note-1-typesafe-jev-consensus-as-oracle.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:image" content="https://research.counterproof.io/og-image.png">
+<meta name="twitter:image" content="https://research.counterproof.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="A technical field note: TypeSafe AI's Jev benchmark grades nine models against the mean of GPT-6 Astra and Claude Fable 5.1. In the vendor's twenty published cases the two labelers disagree on the final action in 8 of 19. Method, counts, what the specimen licenses for agentic stemmatics, limits.">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --text: #1c1a17;
+    --muted: #6b6459;
+    --rule: #ddd6ca;
+    --accent: #7a3b2e;
+    --code-bg: #f1ede4;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.68;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 .5rem; }
+  h2 { font-size: 1.3rem; margin-top: 2.4rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.8rem; }
+  p { margin: 1.15rem 0; }
+  a { color: var(--accent); }
+  hr { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
+  em { font-style: italic; }
+  code { background: var(--code-bg); padding: .1em .3em; border-radius: 3px; font-size: .85em; }
+  blockquote { margin: 1.4rem 0; padding-left: 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+  th, td { text-align: left; padding: .4rem .55rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .papers-menu {
+    display: flex; gap: 1.6rem; flex-wrap: wrap;
+    margin: -0.9rem 0 2.4rem;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: .78rem; letter-spacing: .13em; text-transform: uppercase;
+  }
+  .papers-menu a { color: var(--muted); text-decoration: none; padding-bottom: .25rem; }
+  .papers-menu a:hover { color: var(--accent); }
+  .papers-menu a[aria-current] { color: var(--accent); border-bottom: 2px solid var(--accent); }
+
+  .masthead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    padding-bottom: 1.1rem; margin-bottom: 2.2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead a.brand {
+    display: inline-flex; align-items: center; gap: .6rem;
+    color: var(--text); text-decoration: none;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: .96rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
+  }
+  .masthead a.brand:hover { color: var(--accent); }
+  .masthead .mark { height: .8em; width: auto; flex: none; display: block; }
+  .masthead .kicker {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="https://counterproof.io/">
+    <svg class="mark" viewBox="0 0 188 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <circle cx="14" cy="14" r="14" fill="currentColor"/>
+      <circle cx="54" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="94" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="134" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="4"/>
+      <rect x="160" y="0" width="28" height="28" fill="currentColor"/>
+    </svg><span>CounterProof</span></a>
+  <span class="kicker">Research</span>
+</header>
+<nav class="papers-menu" aria-label="Papers">
+  <a href="/introduction-agentic-stemmatics.html">Introduction Paper</a>
+  <a href="/agentic-stemmatics.html">Research Paper</a>
+  <a href="/field-note-1-typesafe-jev-consensus-as-oracle.html" aria-current="page">Field Note 1</a>
+</nav>
+<h1>Field Note 1. Consensus as oracle: TypeSafe&rsquo;s Jev benchmark as a type specimen</h1>
+
+<p><em>CounterProof Research field note, 16 September 2026, version r7 (corrected 17 September 2026). Drafted by Luuk Joseph Soons with Claude Fable 5.1, one of the two models whose average the benchmark under study treats as truth (see Limits 7). Reviewed refute-first, before publication, by eight outside seats from four model families: Kimi K3 and K2.7 (Moonshot), Grok 4.6 (xAI), DeepSeek v4 pro, and Qwen 3.7 and 3.8 (Alibaba). Every count below was recomputed independently at least six times over the archived files. Seat records and the hashed data archive are held in our reports store and available on request. A plain-language companion is at <a href="https://counterproof.io/notes/typesafe-jev-benchmark-consensus-labels/">counterproof.io/notes/typesafe-jev-benchmark-consensus-labels</a>.</em></p>
+<h2>Abstract</h2>
+<p>TypeSafe AI&rsquo;s Jev is, in its vendor&rsquo;s words, the &ldquo;first public System One Model&rdquo;: it returns only typed decisions (a choice, a score, or a yes/no probability) and never text. Its public benchmark grades nine models against reference labels
+defined as the mean of GPT-6 Astra and Claude Fable 5.1 at high reasoning. The benchmark site also
+serves twenty curated per-case files carrying each reference model&rsquo;s individual answers. We
+archived those files and counted. On this vendor-curated slice of 20 cases out of 711, the two reference models disagree on the final action in 8 of the 19
+cases where both answered (unordered-set comparison of action lists; 6 of 19 under a
+first-action-only rule) and on 31 substantive splits among 356 question-pairs where both answered; all four cases the vendor
+labels &ldquo;all three miss the reference&rdquo; are cases where the two reference models also disagreed
+with each other; the security workflow&rsquo;s second reference substitutes Claude Opus 5, itself a
+graded model, on &ldquo;the 88 documents Fable refused or failed&rdquo;. Jev&rsquo;s own per-question answers are
+also published, and on the 31 contested questions it sides with each reference model equally
+often under argmax (14 / 14 / 3) and nearly so under the vendor&rsquo;s own expected-value scoring
+(13 / 15 / 3), a split consistent both with no preferential alignment and with tracking the two
+labelers&rsquo; mean, so the test does not discriminate between them. We use <strong>consensus-as-oracle</strong> as a name for this grading regime and propose this
+benchmark as its type specimen. We state what the specimen does and does not license for the
+agentic-stemmatics programme, name the open problem it adds (a witness whose emission space is
+fixed by the asker), and declare the authors&rsquo; conflict: the drafting model is one of the two
+reference labelers.</p>
+<h2>1. The object</h2>
+<p><strong>Model.</strong> Jev (<code>jev-latest</code>; the evaluated build is pinned internally as
+<code>typesafe:v13_snowy_elephant</code> in the served files). Interface: <code>POST /v1/systemone</code> with a
+<code>state</code> (string, object or array) and a map of typed questions; primitives Choice (selected
+option + probability map summing to 1 + confidence), Score (probability per level + confidence;
+the vendor&rsquo;s <code>score</code> field is &ldquo;the probability-weighted answer across the levels; can land between
+levels&rdquo;), Noul (probability of yes; no confidence field). The <code>confidence</code> field is
+documented as &ldquo;a statistic computed from the probability distribution the answer already gives
+you&rdquo;, i.e. a shape statistic, not a probability of correctness. Questions are &ldquo;evaluated in
+parallel and in isolation against the same state&rdquo;. The vendor&rsquo;s primer states the training path: &ldquo;Pretrained language models have been adapted in two major
+ways. TypeSafe adds a third&rdquo;, meaning reinforcement learning for calibrated decisions (RLCD). The launch
+post&rsquo;s FAQ, whose answer bodies live in the page&rsquo;s Framer hydration payload and appear in no text
+render (four fetchers reported them absent; a fifth seat found them by searching the raw bytes;
+extracted and hashed in <code>vendor-pages/launch-post-FAQ-extracted.txt</code>), says two things that bear on
+provenance. On data: &ldquo;TypeSafe is primarily a data research lab … We make all the data ourselves. We
+wouldn&rsquo;t train on your data even if you asked us to.&rdquo; On the model: &ldquo;Jev is neither small nor an LLM,
+hence being off the intelligence Pareto curve.&rdquo; The first rules out customer data and names neither a
+base checkpoint nor a teacher nor whether self-made data carries other models&rsquo; answers. The second sits
+in tension with the primer&rsquo;s framing of RLCD as an adaptation of pretrained language models; the
+vendor does not reconcile them, and the trunk remains undisclosed. Reward source is disclosed nowhere
+we read. The FAQ also states the vendor&rsquo;s benchmark philosophy: &ldquo;We deliberately chose not to
+publish performance against public benchmarks … Disclose the nuance in your evals.&rdquo; The launch post&rsquo;s &ldquo;0% hallucination&rdquo; figure is, in its own
+words, &ldquo;not empirical. Schema matching is guaranteed&rdquo;, a type-validity property, not a
+correctness property. Access is waitlist-only.</p>
+<p><strong>Benchmark.</strong> <code>evals.typesafe.ai</code>: four workflows (Security Incidents 240 cases, Agent Trace
+Observability 117, Invoice Processing 150, Customer Service 204; 711 total); nine graded models
+(Jev, Opus 5, Sonnet 5, Haiku 4.5, Sol, Luna, Terra, DeepSeek v4 pro, DeepSeek v4 flash);
+comparison models run through what the launch post calls &ldquo;our System One LLM wrapper, which
+constrains LLMs to output structured decisions compatible with our API&rdquo;, at provider-default
+reasoning. Methodology text, verbatim from the served page: &ldquo;Instead of debating the correctness
+of the harness and labels, we assume that the code is correct, and measure against the current
+smartest large models. For this eval, the reference labels are generated via an average of the
+responses of GPT-6 Astra and Claude Fable 5.1, both at high thinking, answering every question in
+the harness. All other models are evaluated using the provider&rsquo;s default reasoning settings.&rdquo;
+Vendor caveat, launch post: the reference &ldquo;biases answers towards OpenAI and Anthropic&rsquo;s models.
+We likely underestimate the relative performance of our model and DeepSeek&rsquo;s models.&rdquo; The
+scoring function that turns per-question answers into the published accuracy percentages is not
+in the served files; the consensus row, where published, is titled &ldquo;mean of Astra and Fable
+<em>probabilities</em> for every question&rdquo;, so the reference is defined on probability maps, while the
+accuracy is presumably an action-level match. We compare actions because that is what the files
+publish for every model; the mapping from maps to accuracy is the vendor&rsquo;s, and unseen.</p>
+<p><strong>Headline figures</strong> (read from the SVG text labels embedded in the served HTML, not from a
+rendered view): Jev 61.7 / 71.6 / 61.8 / 76.0 on the four workflows, aggregate 67.8%; best
+comparator Sol 74.1%; Opus 5 73.1%; Terra 67.9; Sonnet 5 67.8; Luna 66.8; DS pro 65.5; DS flash
+64.4; Haiku 53.6. Jev trails the per-workflow best on all four (Opus 5 66.2 on security; see §3 on the composition of that workflow&rsquo;s second reference; Sol on the other three), by 17.3 points on
+invoices. The same labels carry cost and latency, on which Jev leads the field by one to three
+orders of magnitude (aggregate <code>$0.0004 · 0.4 s</code> against, for example, Sol <code>$0.0836 · 23.3 s</code> and
+Opus 5 <code>$0.1761 · 37.8 s</code>); this note concerns the grading regime and says nothing for or against
+the price-performance claim.</p>
+<h2>2. Method</h2>
+<p><strong>Acquisition.</strong> <code>curl -sL</code> of the index and four workflow pages, and of the four
+<code>&lt;workflow&gt;-cases.js?v=&lt;hash&gt;</code> files each page loads. Files are <code>__VIEWER_DATA__({...})</code>
+wrappers; strip the wrapper, parse as JSON. Archived with SHA-256 in
+<code>typesafe-evals-published-cases-2026-09-16/</code> (this repository), together with the tabulation
+scripts of the author (<code>analysis2.txt</code>, <code>typesafe-side-on-splits.txt</code>), the Kimi K2.7 seat
+(<code>kimi-recompute.py</code>, <code>kimi-recompute_output.txt</code>). The Grok seat&rsquo;s recomputation (rule, per-case list and every figure) is recorded in its RESULT.md (seat record in this repository);
+the seat removed its own script from the working directory before returning, so only its
+reported output survives.</p>
+<p><strong>Schema.</strong> Per workflow: <code>eval.n_cases</code>; <code>eval.examples</code> (five, each with a vendor label);
+<code>eval.cases[&lt;id&gt;]</code> with <code>models.{opus,sol,typesafe}.decisions[&lt;policy&gt;].actions</code> (list of
+<code>[ACTION, band]</code>), <code>models.*.nodes[].answers</code> (per-question answers including probability maps),
+<code>references[]</code> (per reference model: title + final decisions) and <code>reference_answers[&lt;node&gt;][&lt;qid&gt;].sets</code>
+(two entries where both reference models answered). Two workflows (security, customer service)
+publish a third <code>references</code> row for the consensus; two (agent-trace, invoice) publish none.</p>
+<p><strong>Comparison rule.</strong> Final actions compared as unordered sets of <code>ACTION</code> strings; the <code>band</code>
+element (<code>heavy</code> / <code>light</code> / <code>queue</code>) is dropped, and no case in this slice differs on band given
+the same actions. Order-sensitive and multiset comparison give identical results (two seats
+verified). A first-action-only rule gives 6 of 19 instead of 8. A case
+with a single reference answer (<code>agent_trace_observability/trace_185afd…</code>) is excluded from
+final-action counts. A question-pair counts as a substantive split only when both <code>sets[i].value</code>
+are non-null and differ; pairs with one <code>None</code> are reported separately. Jev&rsquo;s side on a split: Noul at 0.5 (no Jev Noul probability on a split equals 0.5); Choice by argmax of
+the probability map; Score by argmax <strong>and</strong>, as the vendor&rsquo;s own primitive defines it, by expected
+value rounded to the nearest level; the two rules differ on one of seven Score splits. The
+reference models&rsquo; published Score <code>value</code>s equal the argmax of their own maps in all 52 published
+Score sets; re-deriving them by expected value instead would turn 3 agreements into splits (32, not
+31). The published values are the rule of record.</p>
+<p><strong>Independence of the count.</strong> Three scripts, the author&rsquo;s, the Kimi K2.7 seat&rsquo;s and the Grok seat&rsquo;s, were written independently against the same hashed bytes and agree on every figure in
+the table below under the stated rules.</p>
+<h2>3. Results</h2>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cases in benchmark / cases published (vendor-curated)</td>
+<td>711 / 20</td>
+</tr>
+<tr>
+<td>Published cases with two reference answers</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Reference models disagree on final action (unordered set)</td>
+<td><strong>8 / 19</strong></td>
+</tr>
+<tr>
+<td>Same, first-action-only rule</td>
+<td>6 / 19</td>
+</tr>
+<tr>
+<td>Question-pairs with two answers</td>
+<td>356</td>
+</tr>
+<tr>
+<td>Substantive splits (both answered, values differ)</td>
+<td><strong>31</strong></td>
+</tr>
+<tr>
+<td>Splits where one reference gave no answer</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Value-agreeing pairs whose published probability <em>maps</em> nonetheless differ</td>
+<td>151 of 152 with both maps present (167 pairs have a null map)</td>
+</tr>
+<tr>
+<td>&ldquo;All three miss the reference&rdquo; cases with reference disagreement</td>
+<td><strong>4 / 4</strong></td>
+</tr>
+<tr>
+<td>&ldquo;All three agree&rdquo; cases with reference disagreement</td>
+<td>2 / 4</td>
+</tr>
+<tr>
+<td>Jev&rsquo;s side on the 31 substantive splits, argmax: Astra / second reference / neither</td>
+<td><strong>14 / 14 / 3</strong></td>
+</tr>
+<tr>
+<td>Same, Score by expected value</td>
+<td>13 / 15 / 3</td>
+</tr>
+</tbody>
+</table>
+<p>** The map-level row changes what &ldquo;visible half&rdquo; means.<em><em> Where both reference models
+published probability maps and their argmax values agree, the maps themselves differ in 151 of
+152 pairs. The vendor&rsquo;s consensus is defined on those maps. So at the level the reference is
+actually computed, the two labelers almost never agree exactly; the 8/19 and 31/356 figures are
+disagreement at the level of </em>chosen actions and values</em>, which is the level the published
+accuracy most plausibly scores. Both levels are reported; neither is a rate.</p>
+<p><strong>Two examples, and what each does and does not show.</strong>
+<code>art_T1574.001-2__peer_contained__t0</code> (vendor label &ldquo;All three miss the reference&rdquo;): reference 1
+(Astra) <code>ISOLATE HOST</code>; reference 2 <code>REVOKE SESSIONS</code>; consensus row <code>ISOLATE HOST</code>; Opus 5, Sol
+and Jev all <code>QUARANTINE FILE</code>. This shows a <strong>contested label</strong>: one labeler did not produce the
+answer the three models were scored against. It does <em>not</em> show a correct dissent scored wrong: the three models match neither labeler, and would be scored &ldquo;miss&rdquo; under either. The case that
+shows scoring against a contested label going the <em>other</em> way is <code>art_T1546.018-2__change_covers__t2</code>
+(vendor label &ldquo;All three agree&rdquo;): references split <code>ISOLATE HOST</code> / <code>ESCALATE TIER2</code>, consensus
+<code>ESCALATE TIER2</code>, all three graded models <code>ESCALATE TIER2</code>, agreement with one labeler against the
+other, which an action-match scorer would count as correct (the scorer itself is not in the files).
+Across the slice, wherever a consensus row is published it equals one of the two labelers&rsquo; action
+sets, never a third: the average resolves the labelers&rsquo; disagreement by picking a side.</p>
+<p><strong>The substitution.</strong>
+Security workflow, <code>references[1].title</code>, verbatim in every case: &ldquo;Claude Fable 5.1 high, one
+question per request; Claude Opus 5 high on the 88 documents Fable refused or failed&rdquo;. The files
+count <em>cases</em>; the title counts <em>documents</em>; in these files documents ≠ cases (agent-trace: 17
+documents for 5 cases; customer service: 18 for 5). No share is computed. The file does not record
+which documents were substituted, so per-case attribution of reference-2 answers to Fable or Opus
+5 is impossible. What follows is one thing: the second labeler for one workflow is a mixture whose
+composition is undisclosed beyond a document count, and the leaderboard does not surface it.
+That the substitute model is itself among the nine graded is recorded as a disclosure in Limits 9,
+not argued here: four seats from four lineages (Kimi, Grok, DeepSeek, Qwen) read successive versions
+of this paragraph as inviting, by arrangement, a conclusion the text disclaims, and a disclaimer
+that four independent readers say does not work is not a disclaimer.</p>
+<h2>4. What the specimen licenses</h2>
+<p><strong>4.1 Consensus-as-oracle, named.</strong> A grading regime in which the reference label is a
+function (here the mean) of the outputs of other models on the same items, with no independent
+outcome label. This is not a new theoretical object. It is the paper&rsquo;s §4 attractor and §5
+&ldquo;thresholding discards minority-true findings&rdquo; (v1.26 l.400–403) transposed from the <em>reviewer</em>
+slot to the <em>label</em> slot: the reference carries the labelers&rsquo; shared error, which the
+correlated-errors literature measures as large and increasing with capability (Kim, Garg, Peng &amp;
+Garg, ICML 2025, arXiv:2506.07962, measured on two leaderboards and a résumé-screening task, with 60% same-wrong-answer agreement on one leaderboard and 42% on the other per the live paper&rsquo;s v1.30
+wording, <code>https://research.counterproof.io/agentic-stemmatics.html</code>, archived with hash in the
+<code>vendor-pages/</code> folder of the data archive; transfer to workflow benchmarks is our inference). One dependence to state: the vendor&rsquo;s accuracy function is unseen (§1); if it credits
+probability-map proximity rather than action match, &ldquo;scores correct / scores wrong&rdquo; softens to
+&ldquo;scores nearer / scores farther&rdquo;, and the argument runs the same way with less bite. A candidate reproducing the shared
+error scores correct; a candidate correctly dissenting scores wrong. What is new is the
+<strong>specimen</strong>: a shipped vendor benchmark whose visible half, the labelers disagreeing with each other, resolved silently by the average, is countable in published per-case files, and whose
+graded model is a witness with an asker-fixed emission alphabet. The invisible half, both labelers wrong together, is undefined without an independent outcome; we state that as a limit
+of the evidence, not as an argument.</p>
+<p><strong>4.2 What it adds to the corpus.</strong> The paper (v1.26 pin; live v1.30) names the brief as a
+correlation channel (§11.6), the attractor (§4), direct and multi-teacher distillation (§6, §7.1
+&ldquo;<em>contaminatio</em> formalised&rdquo;), unanimous silence (§11.7), and closed-set <em>attribution</em> (§4: Sun et
+al.&rsquo;s five-way classifier; the contrast with reference-based tests at l.365–368). It has <strong>no
+dedicated passage</strong> on (a) a benchmark or evaluation label source as an ancestor-type object,
+(b) a witness whose emission space is fixed by the asker, or (c) a cheap model as pre-filter
+(three absences grep-confirmed by two outside lineages). A fourth absence claimed in r1,
+&ldquo;closed-set behavioural fingerprints&rdquo;, was too broad: §4 is a dedicated passage on closed-set
+attribution from text; what is absent is the narrower object, fingerprints on a typed witness&rsquo;s
+<em>probability maps</em>. Items (a) and (b) are the candidate additions. Item (b) is our joint reading
+of §11.6 and §11.7 (the option set is the brief, and nothing unoffered is ever emitted), not a sentence either passage contains. A typed witness can <em>signal</em> misfit (a flat map) but cannot
+<em>name</em> it; so the entropy of the returned map, not the argmax, is the instrument for detecting
+an incomplete option set.</p>
+<p><strong>4.3 What it does not license.</strong> Nothing here is evidence about Jev&rsquo;s ancestry. The idiosyncrasy
+channel (Sun et al., ICML 2025, arXiv:2502.12150, word-level distributions) is closed for a model
+that emits no words; engineered markers and reference-based teacher tests (Rawat et al.,
+arXiv:2607.09692, which require an earlier-generation checkpoint of the same lineage) need access
+an outsider lacks. On the corpus&rsquo;s own rule (§13: &ldquo;earned for engineered markers and
+reference-based teacher tests only&rdquo;), typed-decision ancestry is program, not result. The distillation hypothesis, that RLCD&rsquo;s reward came from a frontier average, making Jev a descendant of two panel lineages rather than a third, is held at <em>possible</em>: mid-pack agreement is weak evidence against (capability and correlation confounded), and the
+14/14 (or 13/15) split is <strong>non-discriminating</strong>: a model with no favourite
+and a model trained to follow the two labelers&rsquo; mean would both split evenly on questions where
+the labelers part company. Falsifiers: a disclosed non-frontier label source; or a comparison of how close Jev&rsquo;s probability maps sit to the labelers&rsquo; mean, set against competent models not trained on either labeler, across all 711 cases under a frozen rule. Proximity alone does not show descent: any competent model tends to fall between two competent labelers.</p>
+<p><strong>4.4 Consequence for review panels.</strong> A panel gate that counts vendors
+as lineages should not count a typed-decision model graded against other seats&rsquo; consensus as an
+independent lineage until its ancestry has been tested by one of the two earned instruments. That
+follows from §5 and §13 without new data. &ldquo;UNRESOLVED&rdquo; is our house label for that state, not a
+corpus result, and the files here do not license the stronger default that such a model <em>is</em> a
+descendant. The failure mode the rule guards is silent: an untested seat reads as an added
+independent one.</p>
+<h2>5. Limits</h2>
+<ol>
+<li>Twenty curated cases of 711, vendor-selected to show five situations; no rate estimate follows,
+ and the abstract&rsquo;s counts are counts on that slice.</li>
+<li>All figures are the vendor&rsquo;s own measurements; nothing was re-run; the scoring function from
+ per-question answers to published accuracy is not in the files.</li>
+<li>Per-case files name three graded models only; the nine-model table comes from the pages&rsquo; SVG labels.</li>
+<li>Vendor documentation and launch-post quotations were live-verified by four seats on 16 Sep and are
+ now archived with SHA-256 in <code>typesafe-evals-published-cases-2026-09-16/vendor-pages/</code>; before that
+ archive existed they rested on live fetches only.</li>
+<li>The single-reference case and the two workflows without a consensus row limit which counts are
+ re-derivable; where the vendor&rsquo;s label says &ldquo;miss the reference&rdquo; and no consensus row exists, the
+ reference is not visible in the files, and the label cannot be re-derived.</li>
+<li>The 14/14/3 split is rule-dependent (13/15/3 under the vendor&rsquo;s expected-value Score); the
+ 8/19 is rule-dependent (6/19 first-action-only). The stated rules are the ones of record.</li>
+<li>Two of the drafting parties (Fable 5.1 via this author&rsquo;s tooling; an OpenAI harness for a
+ consulted analysis) are the benchmark&rsquo;s labelers. Outside seats to date: Kimi K3 (assessment), Kimi K2.7 (article r1), Grok 4.6 (this note, r1),
+ DeepSeek v4 pro (article r4), Kimi K2.7 (this note r2: zero refutations), Kimi K3 (article r4: the FAQ find), Qwen3.8 (this note r5, CSO-run: zero count refutations; article,
+ pending). <strong>The sentences have not been seat-read as written.</strong></li>
+<li>Corpus line numbers cited are v1.26; the deposited paper is v1.29 (DOI 10.5281/zenodo.22790100),
+ the live HTML is labelled v1.30; every § cited was verified present in v1.30 on 16 Sep, and the
+ Kim et al. wording above follows v1.30.</li>
+<li>Disclosure, drawing nothing from it: Claude Opus 5, the substitute for Fable 5.1 on &ldquo;the 88
+ documents Fable refused or failed&rdquo; in the security workflow, is also one of the nine graded models.
+ The files do not identify the substituted documents; a substituted answer still has to win the mean
+ against Astra before it becomes the label; no inference about any model&rsquo;s score follows from this
+ fact, and none is drawn.</li>
+</ol>
+<h2>6. Proposed open-problem entry (agenticstemmatics.org, appended as problem 7)</h2>
+<blockquote>
+<p><strong>7. The witness with a fixed emission space.</strong> A model that returns only typed decisions over an
+asker-supplied option set cannot raise an unoffered reading: the option set is the whole brief
+(§11.6) and nothing unoffered is ever emitted (§11.7). Its probability map can signal misfit but
+cannot name it. Two instruments are needed. First, a per-item test of whether a flat or
+renormalised map tracks genuinely incomplete option sets, against oracle-labelled omissions, a
+calibration and out-of-distribution measurement on a closed action set that does not depend on
+any vendor. Second, a comparison of how closely the witness&rsquo;s probability maps sit to the graders&rsquo; mean, set against competent models known not to be trained on those graders, over a full benchmark under a frozen rule rather than a curated slice. Proximity alone does not show descent: any competent model tends to fall between two competent graders. The comparison measures behavioural resemblance; training ancestry still needs engineered markers or reference-based teacher tests. A negative result on either changes what a panel may claim about such a
+seat. (§4, §7.2, §11.6–7; Field Note 1.)</p>
+</blockquote>
+<p><em>Correction, 17 September 2026.</em> Section 6 previously described the second instrument as a per-question error-correlation measure, which disagreed with the open problem as published on agenticstemmatics.org, and section 4.3 offered proximity to the labelers&rsquo; mean as a test that discriminates descent. Proximity alone does not show descent. Both passages now require comparison with competent models not trained on the graders. Found by a reviewer seat from OpenAI&rsquo;s Codex while reviewing our evaluation plan for Jev; the substance was confirmed by a Moonshot Kimi seat.</p>
+<h2>Sources</h2>
+<p>TypeSafe: homepage (source of the quoted &ldquo;first public System One Model&rdquo;); launch post; docs <code>introduction</code>, <code>introduction/machine-learning-primer</code>, <code>confidence</code>,
+<code>concepts/system-one</code>, <code>api.md</code>, <code>primitives/choice.md</code>; <code>evals.typesafe.ai</code> index, four workflow
+pages, four <code>*-cases.js</code> (archived, hashed). Kim, Garg, Peng &amp; Garg, ICML 2025, arXiv:2506.07962.
+Sun, Yin, Xu, Kolter &amp; Liu, ICML 2025, arXiv:2502.12150. Rawat, Chen, Anand, Duan, Rotsted &amp; Min,
+arXiv:2607.09692. Soons, <em>Agentic Stemmatics</em> v1.29, doi:10.5281/zenodo.22790100 (live HTML v1.30).
+Internal: <code>TYPESAFE-JEV-ASSESSMENT-2026-09-16.md</code> (r4), its two seat records, the Grok seat record
+on this note, and the archive folder named above.</p>
+<hr />
+<p><em><a href="https://counterproof.io/">CounterProof Research Ltd</a> is a small practice that reviews AI-generated code and AI-assisted
+review processes for organisations where a wrong answer is expensive. We disclose, before anything else, that we have a
+commercial interest in the adoption of outcome-labelled evaluation, the alternative to the grading regime this note
+describes, and that the model used to draft this note is one of the two whose average the benchmark under study treats
+as truth.</em></p>
+<p><em>Cite as: Soons, L. J. (2026). Field Note 1. Consensus as oracle: TypeSafe's Jev benchmark as a type specimen. CounterProof Research, 16 September 2026, r7. Companion to <a href="/agentic-stemmatics.html">Agentic Stemmatics</a>, doi:10.5281/zenodo.22030516.</em></p>
+</body>
+</html>
